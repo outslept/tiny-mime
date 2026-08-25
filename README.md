@@ -1,23 +1,24 @@
-# vite-plus-starter
+# tiny-mime
 
-A starter for creating a Vite Plus project.
+Curated mapping between file extensions and MIME types.
 
-## Development
+## About
 
-- Install dependencies:
+`tiny-mime` answers two questions with a static table of roughly ninety common web types and zero dependencies: `mime("png")` returns `"image/png"`, `ext("image/png")` returns `"png"`. No database, no runtime generation, no full-IANA pretense.
 
-```bash
-vp install
+## Usage
+
+```ts
+import { mime, ext } from "tiny-mime";
+
+mime("png"); // "image/png"
+mime(".JPG"); // "image/jpeg"
+ext("image/png"); // "png"
+ext("text/plain; charset=utf-8"); // "txt"
+ext("application/octet-stream"); // "bin"
+mime("br"); // undefined
 ```
 
-- Run the unit tests:
+## License
 
-```bash
-vp test
-```
-
-- Build the library:
-
-```bash
-vp pack
-```
+MIT
